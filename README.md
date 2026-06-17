@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 💸 No Tan De Una (NTDU) — v3.0.0
 
 Plataforma de gestión de gastos personales construida con **React + Vite** y
