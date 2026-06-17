@@ -17,6 +17,7 @@ export default function PasswordInput({
     required = false,
     autoFocus = false,
     className = '',
+    ...rest
 }) {
     const reactId = useId();
     const inputId = id || reactId;
@@ -52,14 +53,16 @@ export default function PasswordInput({
                 autoFocus={autoFocus}
                 autoComplete={autoComplete}
                 className={`${base} ${className}`}
+                {...rest}
             />
 
             <button
                 type="button"
                 onClick={() => setVisible((v) => !v)}
                 aria-label={visible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                aria-pressed={visible}
                 title={visible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full hover:bg-black/5 active:scale-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
                 <Monkey visible={visible} focused={focused} frac={frac} />
             </button>
@@ -91,19 +94,21 @@ function Monkey({ visible, focused, frac }) {
             {/* Cara */}
             <ellipse cx="32" cy="39" rx="16" ry="14" fill="#E8C29A" />
 
-            {/* Ojos */}
+            {/* Ojos. Las pupilas/brillos se mueven con transform (x/y), no con
+                los atributos cx/cy: así nunca quedan "undefined" y el efecto
+                sigue funcionando aunque el sistema pida menos movimiento. */}
             <g>
                 <circle cx="24" cy="30" r="6" fill="#fff" />
                 <circle cx="40" cy="30" r="6" fill="#fff" />
-                <motion.circle cx={24} cy={30} r="3" fill="#2B2118"
-                    animate={{ cx: 24 + pupilX, cy: 30 + pupilY }} transition={spring} />
-                <motion.circle cx={40} cy={30} r="3" fill="#2B2118"
-                    animate={{ cx: 40 + pupilX, cy: 30 + pupilY }} transition={spring} />
+                <motion.circle cx="24" cy="30" r="3" fill="#2B2118"
+                    animate={{ x: pupilX, y: pupilY }} transition={spring} />
+                <motion.circle cx="40" cy="30" r="3" fill="#2B2118"
+                    animate={{ x: pupilX, y: pupilY }} transition={spring} />
                 {/* brillo */}
-                <motion.circle cx={25} cy={29} r="0.9" fill="#fff"
-                    animate={{ cx: 25 + pupilX, cy: 29 + pupilY }} transition={spring} />
-                <motion.circle cx={41} cy={29} r="0.9" fill="#fff"
-                    animate={{ cx: 41 + pupilX, cy: 29 + pupilY }} transition={spring} />
+                <motion.circle cx="25" cy="29" r="0.9" fill="#fff"
+                    animate={{ x: pupilX, y: pupilY }} transition={spring} />
+                <motion.circle cx="41" cy="29" r="0.9" fill="#fff"
+                    animate={{ x: pupilX, y: pupilY }} transition={spring} />
             </g>
 
             {/* Nariz */}
