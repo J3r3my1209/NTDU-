@@ -6,7 +6,7 @@ Plataforma de gestión de gastos personales construida con **React + Vite** y
 
 ---
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 ```
 React (Vite)  ──>  Supabase
@@ -20,7 +20,7 @@ No hay backend Node propio: el frontend habla directo con Supabase usando la
 
 ---
 
-## 🚀 Puesta en marcha
+## Puesta en marcha
 
 ### 1. Crear el proyecto en Supabase
 1. Entra a [supabase.com](https://supabase.com) y crea un proyecto (gratis).
@@ -62,7 +62,7 @@ VITE_SUPABASE_ANON_KEY=<tu-anon-public-key>
 
 ---
 
-## 🔵 Login con Google (OAuth)
+## Login con Google (OAuth)
 
 El botón "Continuar con Google" usa el proveedor OAuth de Supabase. Para activarlo:
 
@@ -88,7 +88,7 @@ queda persistida y se registra el `ultimo_acceso`.
 
 ---
 
-## 🗄️ Modelo de datos
+## Modelo de datos
 
 | Tabla | Descripción |
 |-------|-------------|
@@ -100,7 +100,7 @@ Al registrarse, un **trigger** crea automáticamente la fila en `profiles`.
 
 ---
 
-## 🛡️ Seguridad (RLS)
+## Seguridad (RLS)
 
 | Regla | Detalle |
 |-------|---------|
@@ -110,7 +110,7 @@ Al registrarse, un **trigger** crea automáticamente la fila en `profiles`.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 - Registro / login / recuperación de contraseña (Supabase Auth)
 - Registrar ingresos y gastos, con categorías y cuentas
 - Balance en tiempo real y análisis por categoría
@@ -119,7 +119,7 @@ Al registrarse, un **trigger** crea automáticamente la fila en `profiles`.
 
 ---
 
-## 📦 Despliegue (Vercel)
+## Despliegue (Vercel)
 El frontend es estático. En Vercel:
 1. Importa el repo, **Root Directory = `frontend`**.
 2. Agrega las variables `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`.
