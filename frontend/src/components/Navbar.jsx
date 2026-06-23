@@ -29,9 +29,13 @@ export const Navbar = () => {
     return (
         <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm safe-top">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-x h-16 flex items-center justify-between">
-                <Link to={isAuthenticated ? '/dashboard' : '/'} className="flex items-center gap-2 shrink-0">
-                    <span className="text-2xl">💸</span>
-                    <span className="text-lg font-black tracking-tight text-gray-900 hidden sm:block">No Tan De Una</span>
+                <Link to={isAuthenticated ? '/dashboard' : '/'} className="flex items-center gap-3 shrink-0">
+                <img 
+                src="/logo-no-tan-de-una.png"
+                alt="Logo No Tan De Una" 
+                className="h-9 w-9 object-contain" 
+                />
+                <span className="text-lg font-black tracking-tight text-gray-900 hidden sm:block">NTDU</span>
                 </Link>
 
                 {/* Navegación desktop */}
@@ -66,7 +70,6 @@ export const Navbar = () => {
                                 Salir
                             </button>
 
-                            {/* Botón hamburguesa (móvil) */}
                             <button
                                 onClick={() => setAbierto((v) => !v)}
                                 aria-label="Menú"

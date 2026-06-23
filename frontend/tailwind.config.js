@@ -60,5 +60,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'), // Opcional, ayuda con los inputs
+    require('tailwindcss-animate'), // ESTO ES CLAVE para las animaciones del chat
+  ],
 }
